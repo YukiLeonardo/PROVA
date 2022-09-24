@@ -24,7 +24,7 @@ public class AbastecimentoDB {
             valores.put("qntAbs",abastecimento.getQntAbs());
             valores.put("data",abastecimento.getData());
             valores.put("valor",abastecimento.getValor());
-            conexao.insertOrThrow("abastecimentos",null,valores);
+            conexao.insert("abastecimentos",null,valores);
             conexao.close();
         }
         public void remover(int id){
@@ -38,7 +38,7 @@ public class AbastecimentoDB {
             String names[]={"id","km","qntAbs, data, valor"};
             Cursor query = conexao.query("abastecimentos", names,
                     null, null, null,
-                    null, "nome");
+                    null, "km");
             while (query.moveToNext()){
                 Abastecimento abastecimento = new Abastecimento();
                 abastecimento
