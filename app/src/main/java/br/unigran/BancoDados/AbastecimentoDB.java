@@ -32,6 +32,33 @@ public class AbastecimentoDB {
             conexao.delete("abastecimentos","id=?",
                     new String[]{id+""});
         }
+    public float media(){
+        float media = 0;
+        float km = 0;
+        float quantidade = 0;
+        conexao = db.getWritableDatabase();
+        String colunas[] = {"quilometragem", "quantidade_abastecida"};
+
+        Cursor query = conexao.query("abastecimentos", colunas,
+                null, null, null,
+                null, "quilometragem");
+
+        while (query.moveToNext()){
+            km = km + Integer.parseInt(query.getString(0));
+            quantidade = quantidade + Integer.parseInt(query.getString(1));
+        }
+
+        conexao.close();
+
+        media = quantidade/km;
+
+        if(km == 0){
+            return 0;
+        } else {
+            return media;
+        }
+
+    }
         public void lista(List dados){
             dados.clear();
             conexao=db.getReadableDatabase();

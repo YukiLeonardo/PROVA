@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText qntAbs;
     EditText data;
     EditText valor;
+    Button media;
     ListView listagem;
     List<Abastecimento> dados;
     DBHelper db;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         qntAbs=findViewById(R.id.id_qntAbastecimento);
         data=findViewById(R.id.id_data);
         valor=findViewById(R.id.id_valor);
+        media = findViewById(R.id.id_calcular);
 
         listagem=findViewById(R.id.id_list);
         dados= new ArrayList();
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         abastecimento.setValor(valor.getText().toString());
         abastecimentoDB.inserir(abastecimento);
         abastecimentoDB.lista(dados);
+
         ((ArrayAdapter) listagem.getAdapter()
         ).notifyDataSetChanged();
         Toast.makeText(this,"Salvo com sucesso",Toast.LENGTH_SHORT)

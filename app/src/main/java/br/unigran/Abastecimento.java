@@ -9,6 +9,15 @@ public class Abastecimento {
     private String qntAbs;
     private String data;
     private String valor;
+    private String media;
+
+    public String getMedia() {
+        return media;
+    }
+
+    public void setMedia(String media) {
+        this.media = media;
+    }
 
     public Integer getId() {
         return id;
@@ -52,7 +61,7 @@ public class Abastecimento {
 
     @Override
     public String toString() {
-        return km;
+        return km + " " + media;
 
     }
 }
