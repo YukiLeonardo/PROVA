@@ -9,8 +9,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
     EditText km;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText data;
     EditText valor;
     ListView listagem;
+    List<Abastecimento> dados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         data=findViewById(R.id.id_data);
         valor=findViewById(R.id.id_valor);
         listagem=findViewById(R.id.id_list);
+        dados= new ArrayList();
     }
     public void salvar(View view){
         Abastecimento abastecimento = new Abastecimento();
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         abastecimento.setQntAbs(qntAbs.getText().toString());
         abastecimento.setData(data.getText().toString());
         abastecimento.setValor(valor.getText().toString());
-
+        dados.add(abastecimento);
         Toast.makeText(this,"Salvo com sucesso",Toast.LENGTH_SHORT)
                 .show();
     }
