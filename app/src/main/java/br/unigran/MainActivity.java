@@ -12,6 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.unigran.BancoDados.AbastecimentoDB;
+import br.unigran.BancoDados.DBHelper;
+
 
 public class MainActivity extends AppCompatActivity {
     EditText km;
@@ -20,18 +23,30 @@ public class MainActivity extends AppCompatActivity {
     EditText valor;
     ListView listagem;
     List<Abastecimento> dados;
+    DBHelper db;
+    AbastecimentoDB abastecimentoDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DBHelper(this);
         setContentView(R.layout.activity_main);
 
         km=findViewById(R.id.id_kmAtual);
         qntAbs=findViewById(R.id.id_qntAbastecimento);
         data=findViewById(R.id.id_data);
         valor=findViewById(R.id.id_valor);
+
         listagem=findViewById(R.id.id_list);
         dados= new ArrayList();
+        ArrayAdapter adapter =
+                new ArrayAdapter(this,
+                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,dados);
+        listagem.setAdapter(adapter);
+
+        abastecimentoDB =new AbastecimentoDB(db);
+        abastecimentoDB.lista(dados);
+
     }
     public void salvar(View view){
         Abastecimento abastecimento = new Abastecimento();
@@ -39,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         abastecimento.setQntAbs(qntAbs.getText().toString());
         abastecimento.setData(data.getText().toString());
         abastecimento.setValor(valor.getText().toString());
-        dados.add(abastecimento);
+        abastecimentoDB.inserir(abastecimento);
+        abastecimentoDB.lista(dados);
         Toast.makeText(this,"Salvo com sucesso",Toast.LENGTH_SHORT)
                 .show();
     }

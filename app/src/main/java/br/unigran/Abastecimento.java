@@ -3,10 +3,20 @@ package br.unigran;
 import java.util.Date;
 
 public class Abastecimento {
+
+    private Integer id;
     private String km;
     private String qntAbs;
     private String data;
     private String valor;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getKm() {
         return km;
