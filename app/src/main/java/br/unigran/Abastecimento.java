@@ -52,11 +52,7 @@ public class Abastecimento {
 
     @Override
     public String toString() {
-        return "Abastecimento{" +
-                "km='" + km + '\'' +
-                ", qntAbs='" + qntAbs + '\'' +
-                ", data=" + data +
-                ", valor='" + valor + '\'' +
-                '}';
+        return km;
+
     }
 }
