@@ -5,7 +5,7 @@ import java.util.Date;
 public class Abastecimento {
     private String km;
     private String qntAbs;
-    private Date data;
+    private String data;
     private String valor;
 
     public String getKm() {
@@ -24,11 +24,11 @@ public class Abastecimento {
         this.qntAbs = qntAbs;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

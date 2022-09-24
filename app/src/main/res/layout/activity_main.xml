@@ -17,6 +17,7 @@
         android:ems="10"
         android:hint="Informe o KM atual!"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/id_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +34,7 @@
         android:ems="10"
         android:hint="Informe o dia abastecido!"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/id_valor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +51,7 @@
         android:ems="10"
         android:hint="Informe a Quantidade Abastecido!"
         android:inputType="date"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/id_valor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,11 +68,13 @@
         android:ems="10"
         android:hint="Informe o Valor abastecido!"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/id_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_data" />
+        app:layout_constraintTop_toBottomOf="@+id/id_data"
+        android:autofillHints="" />
 
     <ListView
         android:id="@+id/id_list"
